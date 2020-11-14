@@ -1,3 +1,13 @@
+
+<?php
+session_start();
+if(strlen($_SESSION['uid'])=="")
+{
+  header('location:logout.php');
+} else {
+
+?>
+
 <?php
 // include Function  files
 require_once ("../controller/DBController.php");
@@ -169,8 +179,8 @@ if (isset($_POST['registerProduct'])) {
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
-                                    <div class="widget-heading"> Alina Mclourd </div>
-                                    <div class="widget-subheading"> VP People Manager </div>
+                                    <div class="widget-heading"> <?php  echo  $_SESSION['fullname'];?> </div>
+                                    <div class="widget-subheading"> MyGarden Admin </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
                                     <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
@@ -717,3 +727,5 @@ if (isset($_POST['registerProduct'])) {
     <script type="text/javascript" src="assets/scripts/main.d810cf0ae7f39f28f336.js"></script>
     </body>
     </html>
+
+    <?php } ?>

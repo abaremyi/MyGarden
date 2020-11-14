@@ -235,10 +235,16 @@ ul.menu-list li a:hover{
     background: url('../image/about-img.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 0.1px;
     height: 130%;
 }
 .bodycontent .content-holder{
     margin: 50px 220px;
+    background: rgba(213, 216, 214, 0.9);
+}
+.bodycontent .content-holder2{
+    margin: 50px 120px;
+    padding: 20px 30px;
     background: rgba(213, 216, 214, 0.9);
 }
 
@@ -290,7 +296,7 @@ ul.menu-list li a:hover{
     color: #cccccc;
     padding: 20px 0px;
     font-size: 12px;
-    margin-top: 2%;
+    margin-top: 0%;
 }
 #copyright p{
     margin: 0px;

@@ -1,4 +1,15 @@
 ﻿<?php
+session_start();
+if(strlen($_SESSION['uid'])=="")
+{
+  header('location:../view/logout.php');
+} else {
+
+?>
+
+
+
+<?php
 // include Function  files
 require_once ("../controller/DBController.php");
 require_once ("../controller/Product.php");
@@ -87,7 +98,9 @@ require_once ("../controller/Category.php");
                                                                     <div class="widget-subheading opacity-8">MyGarden Admin and Business Dir.</div>
                                                                 </div>
                                                                 <div class="widget-content-right mr-2">
-                                                                    <button class="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button>
+                                                                    <button class="btn-pill btn-shadow btn-shine btn btn-focus">
+                                                                        <a href="../view/logout.php" style="text-decoration:none;color:white">Logout</a>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -117,8 +130,8 @@ require_once ("../controller/Category.php");
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
-                                    <div class="widget-heading"> Alina Mclourd </div>
-                                    <div class="widget-subheading"> VP People Manager </div>
+                                    <div class="widget-heading"> <?php  echo  $_SESSION['fullname'];?> </div>
+                                    <div class="widget-subheading"> MyGarden Manager </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
                                     <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
@@ -423,7 +436,7 @@ require_once ("../controller/Category.php");
                             </div>
                             <div class="page-title-actions">
                                 
-                                Tables|Records ...
+                                <!-- Tables|Records ... -->
                             </div>   
                          </div>
                     </div>        <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
@@ -484,8 +497,8 @@ require_once ("../controller/Category.php");
                                                 <div class="widget-numbers">
                                                     <div class="widget-chart-flex">
                                                         <div class="fsize-4">
-                                                            <small class="opacity-5">$</small>
-                                                            <span>1283</span>
+                                                            <small class="opacity-5">Rwf</small>
+                                                            <span>2283</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -508,7 +521,7 @@ require_once ("../controller/Category.php");
                                                 <div class="widget-numbers">
                                                     <div class="widget-chart-flex">
                                                         <div class="fsize-4">
-                                                            <small class="opacity-5">$</small>
+                                                            <small class="opacity-5">Rwf</small>
                                                             <span>1286</span>
                                                         </div>
                                                     </div>
@@ -532,7 +545,7 @@ require_once ("../controller/Category.php");
                                                 <div class="widget-numbers">
                                                     <div class="widget-chart-flex">
                                                         <div class="fsize-4">
-                                                            <small class="opacity-5">$</small>
+                                                            <small class="opacity-5">Rwf</small>
                                                             <span>564</span>
                                                         </div>
                                                     </div>
@@ -718,7 +731,7 @@ require_once ("../controller/Category.php");
                                                                 <div class="widget-subheading">Total revenue streams</div>
                                                             </div>
                                                             <div class="widget-content-right">
-                                                                <div class="widget-numbers text-warning">$3M</div>
+                                                                <div class="widget-numbers text-warning">Rwf3M</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -752,7 +765,7 @@ require_once ("../controller/Category.php");
                                                                 <div class="widget-subheading">Total Clients Profit</div>
                                                             </div>
                                                             <div class="widget-content-right">
-                                                                <div class="widget-numbers text-primary">$12.6k</div>
+                                                                <div class="widget-numbers text-primary">Rwf12.6k</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -793,3 +806,5 @@ require_once ("../controller/Category.php");
 
 
 </html>
+
+<?php } ?>

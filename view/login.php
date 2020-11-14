@@ -1,5 +1,6 @@
 
 <?php 
+session_start();
 require_once ("../controller/DBController.php");
 require_once ("../controller/User.php");
 
@@ -33,11 +34,17 @@ if (isset($_POST['login'])) {
                 foreach ($result as $k => $v) {
                     $retusername = $result[$k]["username"];
                     $retpass = $result[$k]["password"];
+                    $retuserid = $result[$k]["userid"];
+                    $retname = $result[$k]["name"];
                     $type = $result[$k]["type"];
                     if($username == $retusername && $password == $retpass && $type == 'receptionist'){
+                        $_SESSION['uid']=$retuserid;
+                        $_SESSION['fullname']=$retname;
                         echo "<script>alert('Welcome Login Successful');</script>";
                         echo "<script>window.location.href='home.php'</script>";
                     }elseif($username == $retusername && $password == $retpass && $type == 'admin'){
+                        $_SESSION['uid']=$retuserid;
+                        $_SESSION['fullname']=$retname;
                         echo "<script>alert('Welcome Login Successful');</script>";
                         echo "<script>window.location.href='../admin/index.php'</script>";
                     }
